@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlashDAT - Exámenes</title>
+    <link rel="stylesheet" type="text/css" href="/oldexamenes/theme/style.css">
+    <style>
+        img[src$=".svg"] {
+            width: 16px;
+        }
+    </style>
+    <style>
+        #disclaimer {
+            background-color: white;
+            font-size: large;
+            max-width: 400px;
+            padding-inline: 2%;
+            padding-bottom: 1%;
+            padding-top: 1%;
+            border-radius: 10px;
+            margin-top: auto;
+            margin-bottom: 2px;
+            position: fixed;
+            bottom: 40px;
+            border: 1px solid;
+            box-shadow: 5px 5px 2px;
+        }
+        
+        #disclaimer span {
+            float: right;
+        }
+        
+        #disclaimer button {
+            font-size: large;
+            border: none;
+            background: none;
+            display: none;
+        }
+        
+        #disclaimer button:hover {
+            cursor: pointer;
+            font-size: large;
+            border: none;
+            background: none;
+        }
+        
+        #loader {
+            border: 3px solid #f3f3f3;
+            /* Light grey */
+            border-top: 3px solid #202020;
+            /* Blue */
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            animation: spin 2s linear infinite;
+            display: block;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        document.addEventListener(
+            'DOMContentLoaded',
+            () => {
+                let decodedCookie = decodeURIComponent(document.cookie);
+                // Esto quita el footer a partir de la fecha indicada
+                if (new Date() < new Date("Jul 1, 2023 00:00:00") && !decodedCookie.includes("messageSeen=true")) {
+                    document.getElementById('disclaimer').style.display = 'block';
+                    document.cookie = "messageSeen=true";
+                    document.getElementById('close').addEventListener(
+                        'click', () => {
+                            document.getElementById('disclaimer').style.display = 'none';
+                        }
+                    );
+                    setTimeout(() => {
+                        document.getElementById('close').style.display = 'block';
+                        document.getElementById('loader').style.display = 'none';
+                    }, 2000);
+                }
+            });
+    </script>
+</head>
+
+<body>
+    <div id="main-container">
+        <header>
+            <a href="/oldexamenes">
+                <img id="logo" src="/oldexamenes/theme/dat_examenes.png">
+            </a>
+        </header>
+        <!-- <div id="disclaimer" style="display:none;"> Para desactivar el footer (SlashDAT for dummies by dsg) -->
+        <div id="disclaimer" style="display:none;">
+            <span>
+                <div id="loader"></div>
+                <button id="close">&#10006;</button>
+            </span>
+            <p>⚠️⚠️<strong>AVISO Taquillas</strong>⚠️⚠️</p>
+            <p><strong>¿Tienes alquilada una taquilla?</strong></p>
+            <p><u>Aunque quieras renovar al curso que viene</u>, <br>tienes que <strong>vaciarla y devolver las llaves.</strong></p>
+            <!-- <p>Este curso toca <strong>DEVOLVER LAS LLAVES</strong>🔑</p>
+            <p>Aunque tengas intención de renovar tu taquilla el curso que viene, necesitamos que la <strong>vacíes </strong><strong>por completo </strong>y hagas la <strong>devolución de todas las llaves.</strong></p>
+            <p>Desde DAT hemos estado trabajando en optimizar el sistema de alquiler de taquillas y vamos a cambiar tanto la app como algunas cerraduras, por lo que necesitamos que <strong>TODAS las taquillas queden vacías </strong>en cuanto acabe el curso.</p>
+            <p>🥸<strong>¿Qué hay que hacer?</strong></p>
+            <ol>
+                <li><strong>Vaciar </strong>la taquilla</li>
+                <li>Meter todas las <strong>llaves en un sobre </strong>✉ ️con tu <em>número de taquilla </em>y tu <em>nombre</em>✍</li>
+                <li>Echar el sobre al <strong>buzón de DAT </strong>📮</li>
+                <li>Si quieres recuperar tu fianza, rellena el <strong>formulario </strong>escaneando el QR que encontrarás sobre el buzón</li>
+            </ol> -->
+            <p>📅¿<strong>Cuándo</strong>?</p>
+            <p>Tienes hasta el <strong>30 de junio</strong>, <br>después se abrirán todas las taquillas.</p>
+            <p>Más información <a href='https://dat.etsit.upm.es/devolucion-obligatoria-de-llaves-de-taquillas' target=”_blank”><strong>AQUÍ</strong></a></p>
+            <!-- <p>Hasta el <strong>30 de junio</strong>, a partir de entonces <strong>vaciaremos todo</strong>‼️</p>
+            <p><em>Asegúrate de que no queda nada </em><em>para entonces</em>, <em>porque </em><strong><em>podrías perderlo</em></strong></p> -->
+        </div>

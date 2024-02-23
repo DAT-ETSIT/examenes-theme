@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SlashDAT - Exámenes</title>
+  <link rel="stylesheet" type="text/css" href="/oldexamenes/theme/style.css">
+  <style>img[src$=".svg"] { width: 16px; }</style>
+  <style>
+    #disclaimer {
+      background-color: white;
+      font-size: large;
+      max-width: 400px;
+      padding-inline: 2%;
+      padding-bottom: 1%;
+      padding-top: 1%;
+      border-radius: 10px;
+      margin-top: auto;
+      margin-bottom: 2px;
+      position: fixed;
+      bottom: 40px;
+      border: 1px solid;
+      box-shadow: 5px 5px 2px;
+    }
+
+    #disclaimer span {
+      float: right;
+    }
+
+    #disclaimer button {
+      font-size: large;
+      border: none;
+      background: none;
+      display: none;
+    }
+
+    #disclaimer button:hover {
+      cursor:pointer;
+      font-size: large;
+      border: none;
+      background: none;
+    }
+
+    #loader {
+      border: 3px solid #f3f3f3; /* Light grey */
+      border-top: 3px solid #202020; /* Blue */
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      animation: spin 2s linear infinite;
+      display: block;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <script type="text/javascript">
+    document.addEventListener(
+      'DOMContentLoaded',
+      () => {
+        document.getElementById('close').addEventListener(
+          'click', () => {
+            document.getElementById('disclaimer').style.display = 'none';
+          });
+          setTimeout(() => {
+            document.getElementById('close').style.display = 'block';
+            document.getElementById('loader').style.display = 'none';
+          }, 2000);
+      });
+  </script>
+</head>
+<body>
+  <div id="main-container">
+    <header>
+      <a href="/oldexamenes">
+        <img id="logo" src="/oldexamenes/theme/dat_examenes.png">
+      </a>
+    </header>
+    <div id="disclaimer">
+      <span>
+        <div id="loader"></div>
+        <button id="close">&#10006;</button>
+      </span>
+      <p><strong>¡Importante!</strong> Las soluciones a estos exámenes se consideran obsoletas debido a diversas actualizaciones del temario de la asignatura. 
+      Los exámenes resueltos más recientes y con soluciones revisadas por los profesores se encuentran en el <a href="..">directorio superior</a>.</p>
+    </div>

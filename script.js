@@ -1,5 +1,4 @@
-{
-  window.onload = function fixTable() {
+function fixTable() {
     const table = document.querySelector('table');
 
     // Remove <hr>s
@@ -40,8 +39,7 @@
     });
   }
 
-
-  window.onload = function addTitle() {
+function addTitle() {
     let path = window.location.pathname.replace(/\/$/g, '');
     let titleText;
     const pathSplits = path.split('/');
@@ -62,6 +60,9 @@
     const header = document.querySelector('header');
 
     header.insertAdjacentElement('afterend', container);
-
   }
+
+window.onload = function runOnLoad() {
+  fixTable();
+  addTitle();
 }

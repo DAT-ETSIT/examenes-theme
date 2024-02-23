@@ -59,7 +59,7 @@ function addTitle() {
   header.insertAdjacentElement('afterend', container);
 }
 
-window.onload = function runOnLoad() {
+document.addEventListener("DOMContentLoaded", function(event) {
   fixTable();
   addTitle();
-}
+});

@@ -43,6 +43,9 @@ function fixTable() {
         case 'pdf':
           imageSource = iconsPrefix + 'file-pdf.svg';
           break;
+        case 'docx':
+          imageSource = iconsPrefix + 'file-word.svg';
+          break;
         case 'zip':
           imageSource = iconsPrefix + 'file-zip.svg';
           break;

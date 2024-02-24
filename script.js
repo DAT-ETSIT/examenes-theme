@@ -19,7 +19,7 @@ function fixTable() {
   Array.from(document.getElementsByClassName("date")).forEach((cell) => {
     cell.remove();
   });
-  
+
   // Add the first column and put the image in it.
   const rows = Array.from(table.querySelectorAll('tr'));
   rows.forEach((row) => {
@@ -33,10 +33,10 @@ function fixTable() {
     const targetExtension = target.split('.').pop().toLowerCase();
     imageSource = '';
 
-  
+
     if (target.endsWith('/')) imageSource = iconsPrefix + 'file-directory.svg';
     else {
-      switch(targetExtension) {
+      switch (targetExtension) {
         case 'pdf':
           imageSource = iconsPrefix + 'file-pdf.svg';
           break;
@@ -54,10 +54,11 @@ function fixTable() {
       }
     }
 
-      
     image.src = imageSource;
     iconColumn.appendChild(image);
     fileColumn.insertAdjacentElement('beforebegin', iconColumn);
+
+    rows.map((row, index) => { if (index % 2 == 0) row.classList.add("even") });
   });
 }
 
@@ -81,7 +82,7 @@ function addTitle() {
   header.insertAdjacentElement('afterend', container);
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
   fixTable();
   addTitle();
 });

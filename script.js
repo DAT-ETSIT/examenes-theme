@@ -36,7 +36,8 @@ function fixTable() {
     imageSource = '';
 
 
-    if (target.endsWith('/')) imageSource = iconsPrefix + 'file-directory.svg';
+    if (target == "../") imageSource = iconsPrefix + 'back.svg';
+    else if (target.endsWith('/')) imageSource = iconsPrefix + 'file-directory.svg'; 
     else {
       switch (targetExtension) {
         case 'pdf':

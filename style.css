@@ -64,10 +64,6 @@ a:visited {
 
 .img-wrap {
   vertical-align: middle;
-  display: inline-block;
-  margin-right: 8px;
-  width: 16px;
-  height: 16px;
 }
 
 .img-wrap img {

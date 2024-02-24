@@ -1,4 +1,6 @@
 function fixTable() {
+  const iconsPrefix = '/theme/icons/';
+
   const table = document.querySelector('table');
   // Remove unnecesary columns.
   // Obtén la referencia a la fila de encabezado
@@ -18,25 +20,45 @@ function fixTable() {
     cell.remove();
   });
   
-  /**
-  // Remove the first column and put the image in the next.
+  // Add the first column and put the image in it.
   const rows = Array.from(table.querySelectorAll('tr'));
   rows.forEach((row) => {
-    const iconColumn = row.children[0];
-    const fileColumn = row.children[1];
-    // Remove icon column.
-    row.removeChild(iconColumn);
-    const image = iconColumn.firstElementChild;
-    if (!image) {
-      return;
+    const fileColumn = row.children[0];
+    const iconColumn = document.createElement('td');
+    iconColumn.className = 'img-wrap';
+    iconColumn.style = "width: 1%";
+
+    const target = row.children[0].children[0].getAttribute('href');
+    const image = document.createElement('img');
+    const targetExtension = target.split('.').pop().toLowerCase();
+    imageSource = '';
+
+  
+    if (target.endsWith('/')) imageSource = iconsPrefix + 'file-directory.svg';
+    else {
+      switch(targetExtension) {
+        case 'pdf':
+          imageSource = iconsPrefix + 'file-pdf.svg';
+          break;
+        case 'zip':
+          imageSource = iconsPrefix + 'file-zip.svg';
+          break;
+        case 'py':
+          imageSource = iconsPrefix + 'file-code.svg';
+          break;
+        case 'txt':
+          imageSource = iconsPrefix + 'file-text.svg';
+          break;
+        default:
+          break;
+      }
     }
-    // Wrap icon in a div.img-wrap.
-    const div = document.createElement('div');
-    div.className = 'img-wrap';
-    div.appendChild(image);
-    // Insert icon before filename.
-    fileColumn.insertBefore(div, fileColumn.firstElementChild);
-  });*/
+
+      
+    image.src = imageSource;
+    iconColumn.appendChild(image);
+    fileColumn.insertAdjacentElement('beforebegin', iconColumn);
+  });
 }
 
 function addTitle() {
